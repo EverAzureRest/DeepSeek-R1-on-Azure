@@ -1,0 +1,16 @@
+#cloud-config
+users:
+- default
+
+package_update: true
+
+packages:
+- apt-transport-https
+- ca-certificates
+- curl
+
+runcmd:
+- curl -fsSL https://ollama.com/install.sh | sh 
+- ollama pull deepseek-r1:671b
+- ollama serve
+- ollama run deepseek-r1:671b
